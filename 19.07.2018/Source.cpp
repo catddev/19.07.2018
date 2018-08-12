@@ -23,7 +23,7 @@ int main()
 		case 1:
 		{
 			const int n = 5, m = 4, l = 3;
-			int a[5][4][3];
+			int a[n][m][l];
 			int i, j, k;
 			int sum = 0;
 			int maxsum = INT_MIN;
@@ -32,9 +32,9 @@ int main()
 			for (i = 0; i < n; i++)
 			{
 				sum = 0;
-				for (j = 0; j < n; j++)
+				for (j = 0; j < m; j++)
 				{
-					for (k = 0; k < n; k++)
+					for (k = 0; k < l; k++)
 					{
 						a[i][j][k] = rand() % 21;
 						cout << a[i][j][k] << " ";
@@ -43,26 +43,27 @@ int main()
 					cout << endl;
 				}
 				cout << endl << sum << endl;
+				index = sum > maxsum ? i : index;
 				maxsum = sum > maxsum ? sum : maxsum;
-				if (maxsum) index = i;
+				
 				cout << "__________________" << endl;
 			}
-			cout << maxsum << " index: " << i << endl << endl;
+			cout << maxsum << " index: " << index << endl << endl;
 
 		}
 		break;
 		case 2:
 		{
 			const int n = 5, m = 5, l = 5;
-			int a[5][4][3];
+			int a[5][5][5];
 			int i, j=0, k=0;
 
 			for (i = 0; i < n; i++)
 			{
 				cout << "matrix " << i << endl << endl;
-				for (j = 0; j < n; j++)
+				for (j = 0; j < m; j++)
 				{
-					for (k = 0; k < n; k++)
+					for (k = 0; k < l; k++)
 					{
 						a[i][j][k] = rand() % 21;
 						if (j == k || j + k == l - 1)
